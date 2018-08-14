@@ -1,0 +1,16 @@
+#press(E);
+key(use)
+wait(300ms);
+
+GETSLOT(nether_wart,#slot)
+LOG(%#slot%)
+SLOTCLICK(%#slot%)
+SLOTCLICK(72)
+SLOTCLICK(72,lmb,false)
+# LOG(%#slot%)
+for(#invs,54,71)
+	SLOTCLICK(%#invs%,rmb,false)
+next
+LOG(%#slot%)
+SLOTCLICK(%#slot%,lmb,false)
+PRESS(E)

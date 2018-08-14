@@ -1,0 +1,30 @@
+$${
+IF(@farm);
+LOG("&2[%PLAYER%] &CarrotFarm disabled.");
+UNSET(@farm);
+STOP;
+ELSE;
+SET(@farm);
+LOG("&2[%PLAYER%] &CarrotFarm enabled.");
+DO;
+    SLOT(1);
+    PICK("nether_wart");
+    if(%HIT_ID% == DIRT)
+        if(%ITEM% == "nether_wart")
+            wait(1t)
+            key(use)
+        endif
+    endif
+    if(%HIT_AGE% == 7)
+        key(attack)
+        wait(5t)
+        if(%HIT_ID% == DIRT)
+            if(%ITEM% == "nether_wart")
+                key(use)
+                wait(5t)
+            endif
+        endif
+    endif
+WHILE(@farm);
+ENDIF;
+}$$

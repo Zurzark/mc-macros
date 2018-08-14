@@ -1,0 +1,81 @@
+LOG(Alchemy Start:,%TIME%)
+for(#invslot,1,33)
+	KEY(USE)
+	WAIT(250ms)
+
+	&a_item="nether_wart"
+	getslotitem(3,&founditem);
+	getslot(nether_wart,#slot,2);
+	if(%&founditem% != %&a_item%)
+		slotclick(%#slot%)
+		wait(1t)
+		slotclick(3,rmb,false)
+		wait(1t)
+		slotclick(%#slot%)
+		wait(1t)
+	endif
+	press(E)
+	wait(10ms)
+	keydown(RIGHT)
+	WAIT(10ms)
+	keyup(RIGHT)
+next
+wait(200ms)
+LOG(%&founditem%,Finished!)
+ECHO(/res tp ofarm)
+
+###################################
+wait(600ms)
+for(#invslot,1,33)
+	KEY(USE)
+	WAIT(250ms)
+
+	&a_item="sugar"
+	getslotitem(3,&founditem);
+	getslot(sugar,#slot,2);
+	if(%&founditem% != %&a_item%)
+		slotclick(%#slot%)
+		wait(1t)
+		slotclick(3,rmb,false)
+		wait(1t)
+		slotclick(%#slot%)
+		wait(1t)
+	endif
+	press(E)
+	wait(10ms)
+	keydown(RIGHT)
+	WAIT(10ms)
+	keyup(RIGHT)
+next
+LOG(%&founditem%,Finished!)
+wait(200ms)
+ECHO(/res tp ofarm)
+
+############################
+wait(600ms)
+for(#invslot,1,33)
+	KEY(USE)
+	WAIT(250ms)
+
+	&a_item="redstone"
+	getslotitem(3,&founditem);
+	getslot(redstone,#slot,2);
+	if(%&founditem% != %&a_item%)
+		slotclick(%#slot%)
+		wait(1t)
+		slotclick(3,rmb,false)
+		wait(1t)
+		slotclick(%#slot%)
+		wait(1t)
+	endif
+	press(E)
+	wait(10ms)
+	keydown(RIGHT)
+	WAIT(10ms)
+	keyup(RIGHT)
+next
+wait(200ms)
+LOG(%&founditem%,Finished!)
+ECHO(/res tp ofarm)
+WAIT(270t)
+LOG(%TIME%,Alchemy sucessful!)
