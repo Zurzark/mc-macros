@@ -6,14 +6,15 @@ for(#s_loop,1,9)
 		&c_item="brewing_stand"
 		if(%HITID%==%&c_item%)
 			KEY(USE)
-			WAIT(250ms)
+			WAIT(300ms)
 
 			&a_item="nether_wart"
 			getslotitem(3,&founditem);
 			getslot(nether_wart,#slot,2);
 			if(%&founditem% != %&a_item%)
-				slotclick(%#slot%)
 				wait(1t)
+				slotclick(%#slot%)
+				wait(2t)
 				slotclick(3,rmb,false)
 				wait(1t)
 				slotclick(%#slot%)
@@ -34,7 +35,7 @@ for(#s_loop,1,9)
 	wait(200ms)
 	LOG(%#s_loop%,:,%&e_flag%,1)
 	LOG(%#s_loop%,:,%&founditem%,Finished!)
-	ECHO(/res tp ofarm)
+	ECHO(/res tp ofarm.v)
 
 	###################################
 	if(%&e_flag%!="error")
@@ -44,14 +45,15 @@ for(#s_loop,1,9)
 			&c_item="brewing_stand"
 			if(%HITID%==%&c_item%)
 				KEY(USE)
-				WAIT(250ms)
+				WAIT(300ms)
 
 				&a_item="sugar"
 				getslotitem(3,&founditem);
 				getslot(sugar,#slot,2);
 				if(%&founditem% != %&a_item%)
-					slotclick(%#slot%)
 					wait(1t)
+					slotclick(%#slot%)
+					wait(2t)
 					slotclick(3,rmb,false)
 					wait(1t)
 					slotclick(%#slot%)
@@ -71,7 +73,7 @@ for(#s_loop,1,9)
 		next
 		LOG(%#s_loop%,:,%&founditem%,Finished!)
 		wait(200ms)
-		ECHO(/res tp ofarm)
+		ECHO(/res tp ofarm.v)
 	endif
 	LOG(%#s_loop%,:,%&e_flag%,2)
 
@@ -83,14 +85,15 @@ for(#s_loop,1,9)
 			&c_item="brewing_stand"
 			if(%HITID%==%&c_item%)
 				KEY(USE)
-				WAIT(250ms)
+				WAIT(300ms)
 
 				&a_item="redstone"
 				getslotitem(3,&founditem);
 				getslot(redstone,#slot,2);
 				if(%&founditem% != %&a_item%)
-					slotclick(%#slot%)
 					wait(1t)
+					slotclick(%#slot%)
+					wait(2t)
 					slotclick(3,rmb,false)
 					wait(1t)
 					slotclick(%#slot%)
@@ -110,8 +113,8 @@ for(#s_loop,1,9)
 		next
 		wait(200ms)
 		LOG(%#s_loop%,:,%&founditem%,Finished!)
-		ECHO(/res tp ofarm)
-		WAIT(270t)
+		ECHO(/res tp ofarm.v)
+		WAIT(285t)
 		LOG(%#s_loop%,:,%TIME%,Alchemy sucessful!)
 	endif
 	LOG(%&e_flag%,3)
@@ -122,7 +125,7 @@ for(#s_loop,1,9)
 		wait(100ms);
 		if(%HITID%==%&b_item%)
 			key(use)
-			wait(3000ms)
+			wait(3500ms)
 			key(use)
 			wait(300ms)
 		endif
@@ -131,7 +134,7 @@ for(#s_loop,1,9)
 		wait(100ms);
 		if(%HITID%==%&b_item%)
 			key(use)
-			wait(3000ms)
+			wait(3500ms)
 			key(use)
 			wait(300ms)
 		endif
