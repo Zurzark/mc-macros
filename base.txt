@@ -1,112 +1,143 @@
-LOG(Alchemy Start:,%TIME%)
-for(#invslot,1,33)
-	&c_item="brewing_stand"
-	if(%HITID%==%&c_item%)
-		KEY(USE)
-		WAIT(250ms)
+for(#s_loop,1,2)
+	wait(50ms)
+	look(270,10)
+	LOG(Alchemy Start:,%TIME%)
+	for(#invslot,1,33)
+		&c_item="brewing_stand"
+		if(%HITID%==%&c_item%)
+			KEY(USE)
+			WAIT(250ms)
 
-		&a_item="nether_wart"
-		getslotitem(3,&founditem);
-		getslot(nether_wart,#slot,2);
-		if(%&founditem% != %&a_item%)
-			slotclick(%#slot%)
-			wait(1t)
-			slotclick(3,rmb,false)
-			wait(1t)
-			slotclick(%#slot%)
-			wait(1t)
+			&a_item="nether_wart"
+			getslotitem(3,&founditem);
+			getslot(nether_wart,#slot,2);
+			if(%&founditem% != %&a_item%)
+				slotclick(%#slot%)
+				wait(1t)
+				slotclick(3,rmb,false)
+				wait(1t)
+				slotclick(%#slot%)
+				wait(1t)
+			endif
+			press(E)
+			wait(10ms)
+			keydown(RIGHT)
+			WAIT(10ms)
+			keyup(RIGHT)
+			&e_flag="bingo"
 		endif
-		press(E)
 		wait(10ms)
-		keydown(RIGHT)
-		WAIT(10ms)
-		keyup(RIGHT)
-		&e_flag="right"
+		if(%HITID%!=%&c_item%)
+			&e_flag="error"
+		endif
+	next
+	wait(200ms)
+	LOG(%&e_flag%,1)
+	LOG(%&founditem%,Finished!)
+	ECHO(/res tp ofarm)
+
+	###################################
+	if(%&e_flag%!="error")
+		wait(600ms)
+		look(270,10)
+		for(#invslot,1,33)
+			&c_item="brewing_stand"
+			if(%HITID%==%&c_item%)
+				KEY(USE)
+				WAIT(250ms)
+
+				&a_item="sugar"
+				getslotitem(3,&founditem);
+				getslot(sugar,#slot,2);
+				if(%&founditem% != %&a_item%)
+					slotclick(%#slot%)
+					wait(1t)
+					slotclick(3,rmb,false)
+					wait(1t)
+					slotclick(%#slot%)
+					wait(1t)
+				endif
+				press(E)
+				wait(10ms)
+				keydown(RIGHT)
+				WAIT(10ms)
+				keyup(RIGHT)
+				&e_flag="bingo"
+			endif
+			wait(10ms)
+			if(%HITID%!=%&c_item%)
+				&e_flag="error"
+			endif
+		next
+		LOG(%&founditem%,Finished!)
+		wait(200ms)
+		ECHO(/res tp ofarm)
 	endif
-	wait(10ms)
-	if(%HITID%!=%&c_item%)
-		&e_flag="error"
+	LOG(%&e_flag%,2)
+
+	############################
+	if(%&e_flag%!="error")
+		wait(600ms)
+		look(270,10)
+		for(#invslot,1,33)
+			&c_item="brewing_stand"
+			if(%HITID%==%&c_item%)
+				KEY(USE)
+				WAIT(250ms)
+
+				&a_item="redstone"
+				getslotitem(3,&founditem);
+				getslot(redstone,#slot,2);
+				if(%&founditem% != %&a_item%)
+					slotclick(%#slot%)
+					wait(1t)
+					slotclick(3,rmb,false)
+					wait(1t)
+					slotclick(%#slot%)
+					wait(1t)
+				endif
+				press(E)
+				wait(10ms)
+				keydown(RIGHT)
+				WAIT(10ms)
+				keyup(RIGHT)
+				&e_flag="bingo"
+			endif
+			wait(10ms)
+			if(%HITID%!=%&c_item%)
+				&e_flag="error"
+			endif
+		next
+		wait(200ms)
+		LOG(%&founditem%,Finished!)
+		ECHO(/res tp ofarm)
+		WAIT(270t)
+		LOG(%TIME%,Alchemy sucessful!)
+	endif
+	LOG(%&e_flag%,3)
+	if(%&e_flag%!="error")
+		&b_item="lever"
+		# 下面的拉杆
+		look(240,5)
+		wait(100ms);
+		if(%HITID%==%&b_item%)
+			key(use)
+			wait(3000ms)
+			key(use)
+			wait(300ms)
+		endif
+		# 上面的拉杆
+		look(256,345)
+		wait(100ms);
+		if(%HITID%==%&b_item%)
+			key(use)
+			wait(3000ms)
+			key(use)
+			wait(300ms)
+		endif
+	endif
+	if(%&e_flag%=="error")
+		log(break,%#s_loop%)
+		break
 	endif
 next
-wait(200ms)
-LOG(%&e_flag%,1)
-LOG(%&founditem%,Finished!)
-ECHO(/res tp ofarm)
-
-###################################
-if(%&e_flag%!="error")
-	wait(600ms)
-	for(#invslot,1,33)
-		&c_item="brewing_stand"
-		if(%HITID%==%&c_item%)
-			KEY(USE)
-			WAIT(250ms)
-
-			&a_item="sugar"
-			getslotitem(3,&founditem);
-			getslot(sugar,#slot,2);
-			if(%&founditem% != %&a_item%)
-				slotclick(%#slot%)
-				wait(1t)
-				slotclick(3,rmb,false)
-				wait(1t)
-				slotclick(%#slot%)
-				wait(1t)
-			endif
-			press(E)
-			wait(10ms)
-			keydown(RIGHT)
-			WAIT(10ms)
-			keyup(RIGHT)
-			&e_flag="bingo"
-		endif
-		wait(10ms)
-		if(%HITID%!=%&c_item%)
-			&e_flag="error"
-		endif
-	next
-	LOG(%&founditem%,Finished!)
-	wait(200ms)
-	ECHO(/res tp ofarm)
-endif
-LOG(%&e_flag%,2)
-
-############################
-if(%&e_flag%!="error")
-	wait(600ms)
-	for(#invslot,1,33)
-		&c_item="brewing_stand"
-		if(%HITID%==%&c_item%)
-			KEY(USE)
-			WAIT(250ms)
-
-			&a_item="redstone"
-			getslotitem(3,&founditem);
-			getslot(redstone,#slot,2);
-			if(%&founditem% != %&a_item%)
-				slotclick(%#slot%)
-				wait(1t)
-				slotclick(3,rmb,false)
-				wait(1t)
-				slotclick(%#slot%)
-				wait(1t)
-			endif
-			press(E)
-			wait(10ms)
-			keydown(RIGHT)
-			WAIT(10ms)
-			keyup(RIGHT)
-			&e_flag="bingo"
-		endif
-		wait(10ms)
-		if(%HITID%!=%&c_item%)
-			&e_flag="error"
-		endif
-	next
-	wait(200ms)
-	LOG(%&founditem%,Finished!)
-	ECHO(/res tp ofarm)
-	WAIT(270t)
-	LOG(%TIME%,Alchemy sucessful!)
-endif
-LOG(%&e_flag%,3)
