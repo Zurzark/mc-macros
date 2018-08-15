@@ -1,7 +1,7 @@
-for(#s_loop,1,2)
+for(#s_loop,1,9)
 	wait(50ms)
 	look(270,10)
-	LOG(Alchemy Start:,%TIME%)
+	LOG(%#s_loop%,:Alchemy Start:,%TIME%)
 	for(#invslot,1,33)
 		&c_item="brewing_stand"
 		if(%HITID%==%&c_item%)
@@ -32,8 +32,8 @@ for(#s_loop,1,2)
 		endif
 	next
 	wait(200ms)
-	LOG(%&e_flag%,1)
-	LOG(%&founditem%,Finished!)
+	LOG(%#s_loop%,:,%&e_flag%,1)
+	LOG(%#s_loop%,:,%&founditem%,Finished!)
 	ECHO(/res tp ofarm)
 
 	###################################
@@ -69,11 +69,11 @@ for(#s_loop,1,2)
 				&e_flag="error"
 			endif
 		next
-		LOG(%&founditem%,Finished!)
+		LOG(%#s_loop%,:,%&founditem%,Finished!)
 		wait(200ms)
 		ECHO(/res tp ofarm)
 	endif
-	LOG(%&e_flag%,2)
+	LOG(%#s_loop%,:,%&e_flag%,2)
 
 	############################
 	if(%&e_flag%!="error")
@@ -109,10 +109,10 @@ for(#s_loop,1,2)
 			endif
 		next
 		wait(200ms)
-		LOG(%&founditem%,Finished!)
+		LOG(%#s_loop%,:,%&founditem%,Finished!)
 		ECHO(/res tp ofarm)
 		WAIT(270t)
-		LOG(%TIME%,Alchemy sucessful!)
+		LOG(%#s_loop%,:,%TIME%,Alchemy sucessful!)
 	endif
 	LOG(%&e_flag%,3)
 	if(%&e_flag%!="error")
@@ -137,7 +137,7 @@ for(#s_loop,1,2)
 		endif
 	endif
 	if(%&e_flag%=="error")
-		log(break,%#s_loop%)
+		log(%#s_loop%,:,break,%#s_loop%)
 		break
 	endif
 next
