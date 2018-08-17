@@ -1,0 +1,9 @@
+ifmatches(%CHAT%,"\u6ca1\u7528\u7684\u5b9e\u4f53")
+	&rod="fishing_rod"
+	LOG(%ITEM%)
+	if(%ITEM%==%&rod%)
+		LOG(111)
+		wait(1000ms)
+		key(use)
+	endif
+endif
