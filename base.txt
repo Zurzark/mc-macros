@@ -8,17 +8,16 @@ for(#s_loop,1,9)
 			KEY(USE)
 			WAIT(300ms)
 
-			&a_item="nether_wart"
-			getslotitem(3,&founditem);
+			getslotitem(3,&founditem,#stacksizevar,#datavar);
 			getslot(nether_wart,#slot,2);
-			if(%&founditem% != %&a_item%)
-				wait(1t)
+			if(%#stacksizevar% == 0)
+				wait(2t)
 				slotclick(%#slot%)
 				wait(2t)
 				slotclick(3,rmb,false)
-				wait(1t)
+				wait(2t)
 				slotclick(%#slot%)
-				wait(1t)
+				wait(2t)
 			endif
 			press(E)
 			wait(10ms)
@@ -47,17 +46,16 @@ for(#s_loop,1,9)
 				KEY(USE)
 				WAIT(300ms)
 
-				&a_item="sugar"
-				getslotitem(3,&founditem);
+				getslotitem(3,&founditem,#stacksizevar,#datavar);
 				getslot(sugar,#slot,2);
-				if(%&founditem% != %&a_item%)
-					wait(1t)
+				if(%#stacksizevar% == 0)
+					wait(2t)
 					slotclick(%#slot%)
 					wait(2t)
 					slotclick(3,rmb,false)
-					wait(1t)
+					wait(2t)
 					slotclick(%#slot%)
-					wait(1t)
+					wait(2t)
 				endif
 				press(E)
 				wait(10ms)
@@ -87,17 +85,16 @@ for(#s_loop,1,9)
 				KEY(USE)
 				WAIT(300ms)
 
-				&a_item="redstone"
-				getslotitem(3,&founditem);
+				getslotitem(3,&founditem,#stacksizevar,#datavar);
 				getslot(redstone,#slot,2);
-				if(%&founditem% != %&a_item%)
-					wait(1t)
+				if(%#stacksizevar% == 0)
+					wait(2t)
 					slotclick(%#slot%)
 					wait(2t)
 					slotclick(3,rmb,false)
-					wait(1t)
+					wait(2t)
 					slotclick(%#slot%)
-					wait(1t)
+					wait(2t)
 				endif
 				press(E)
 				wait(10ms)
@@ -125,7 +122,7 @@ for(#s_loop,1,9)
 		wait(100ms);
 		if(%HITID%==%&b_item%)
 			key(use)
-			wait(3500ms)
+			wait(4000ms)
 			key(use)
 			wait(300ms)
 		endif
@@ -134,7 +131,7 @@ for(#s_loop,1,9)
 		wait(100ms);
 		if(%HITID%==%&b_item%)
 			key(use)
-			wait(3500ms)
+			wait(4000ms)
 			key(use)
 			wait(300ms)
 		endif
