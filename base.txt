@@ -6,7 +6,7 @@ for(#s_loop,1,9)
 		&c_item="brewing_stand"
 		if(%HITID%==%&c_item%)
 			KEY(USE)
-			WAIT(300ms)
+			WAIT(400ms)
 
 			getslotitem(3,&founditem,#stacksizevar,#datavar);
 			getslot(nether_wart,#slot,2);
@@ -20,9 +20,9 @@ for(#s_loop,1,9)
 				wait(2t)
 			endif
 			press(E)
-			wait(10ms)
+			wait(5ms)
 			keydown(RIGHT)
-			WAIT(10ms)
+			WAIT(5ms)
 			keyup(RIGHT)
 			&e_flag="bingo"
 		endif
@@ -44,7 +44,7 @@ for(#s_loop,1,9)
 			&c_item="brewing_stand"
 			if(%HITID%==%&c_item%)
 				KEY(USE)
-				WAIT(300ms)
+				WAIT(400ms)
 
 				getslotitem(3,&founditem,#stacksizevar,#datavar);
 				getslot(sugar,#slot,2);
@@ -58,9 +58,9 @@ for(#s_loop,1,9)
 					wait(2t)
 				endif
 				press(E)
-				wait(10ms)
+				wait(5ms)
 				keydown(RIGHT)
-				WAIT(10ms)
+				WAIT(5ms)
 				keyup(RIGHT)
 				&e_flag="bingo"
 			endif
@@ -83,7 +83,7 @@ for(#s_loop,1,9)
 			&c_item="brewing_stand"
 			if(%HITID%==%&c_item%)
 				KEY(USE)
-				WAIT(300ms)
+				WAIT(400ms)
 
 				getslotitem(3,&founditem,#stacksizevar,#datavar);
 				getslot(redstone,#slot,2);
@@ -97,9 +97,9 @@ for(#s_loop,1,9)
 					wait(2t)
 				endif
 				press(E)
-				wait(10ms)
+				wait(5ms)
 				keydown(RIGHT)
-				WAIT(10ms)
+				WAIT(5ms)
 				keyup(RIGHT)
 				&e_flag="bingo"
 			endif
