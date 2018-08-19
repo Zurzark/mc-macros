@@ -1,0 +1,21 @@
+$${
+IF(@attack_s);
+LOG("&2[%PLAYER%] AutoAttacking disabled.");
+UNSET(@attack_s);
+STOP;
+ELSE;
+SET(@attack_s);
+LOG("&2[%PLAYER%] AutoAttacking enabled.");
+&a = "PLAYER"
+DO;
+	if(%HIT% == %&a%)
+	# log(%HIT%)
+	# log(%HITNAME%)
+		key(attack)
+		press(B)
+		wait(10t)
+		press(B)
+	endif
+WHILE(@attack_s);
+ENDIF;
+}$$
