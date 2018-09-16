@@ -1,2 +1,53 @@
+$${
+IF(@farming);
+LOG("[%PLAYER%] AutoFarm disabled.");
+UNSET(@farming);
+STOP;
+ELSE;
+SET(@farming);
+LOG("[%PLAYER%] AutoFarm enabled.");
+&a = "PLAYER"
+DO;
+	for(#s_loop,1,9999)
+		ECHO(/res tp zfarm)
+		wait(2t)
+		look(90,0)
 
-look(270,10)
+		do;
+			look(90,0)
+			do;
+				keydown(forward)
+				wait(200ms)
+				keyup(forward)
+				wait(2700ms)
+			while(%XPOS% < -9555);
+			endif;
+
+			wait(100ms)
+			keydown(right)
+			wait(500ms)
+			keyup(right)
+			wait(2500ms)
+
+			do;
+				keydown(back)
+				wait(200ms)
+				keyup(back)
+				wait(2700ms)
+			while(%XPOS% > -9646);
+			endif;
+
+			wait(100ms)
+			keydown(right)
+			wait(500ms)
+			keyup(right)
+			wait(2500ms)
+
+		while(%ZPOS% < 6206);
+		endif;
+		wait(1000ms)
+		log(%#s_loop%)
+	next
+WHILE(@farming);
+ENDIF;
+}$$
